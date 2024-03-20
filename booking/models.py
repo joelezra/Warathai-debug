@@ -1,6 +1,7 @@
 from django.db import models
-from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
+from django.core.exceptions import ValidationError
+
 
 # Create your models here.
 class TimeSlot(models.Model):
@@ -17,7 +18,7 @@ class Table(models.Model):
 
 
 class Booking(models.Model):
-    user = models.ForeignKey('User', on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     table = models.ForeignKey(Table, on_delete=models.CASCADE)
     date = models.ForeignKey(Date, on_delete=models.CASCADE)
     time_slot = models.ForeignKey(TimeSlot, on_delete=models.CASCADE)
